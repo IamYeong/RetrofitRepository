@@ -5,29 +5,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".RerofitActivity"
     android:orientation="vertical"
     >
 
     <android.widget.Button
-        android:id="@+id/btn_retrofit_main"
+        android:id="@+id/btn_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_gradient_custom"
-        android:layout_margin="20dp"
-        android:text="@string/retrofit"
-        android:textColor="@color/white"
+        android:background="@drawable/btn_custom_only_line"
+        android:layout_margin="10dp"
+        android:text="@string/request"
+        android:textColor="@color/design_default_color_primary"
         android:textSize="20dp"
         />
 
-    <android.widget.Button
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_gradient_custom"
         android:layout_margin="20dp"
-        android:text="@string/ready"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        />
+        >
+
+        <TextView
+            android:id="@+id/tv_retrofit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            />
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

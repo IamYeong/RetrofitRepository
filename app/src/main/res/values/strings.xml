@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RetrofitExample</string>
+    <string name="request">요청</string>
+    <string name="retrofit">RETROFIT</string>
+    <string name="public_api">공공API</string>
+    <string name="ready">준비 중</string>
+
 </resources>

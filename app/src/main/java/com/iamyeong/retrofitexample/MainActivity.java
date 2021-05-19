@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.provider.FontRequest;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -20,57 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tv_main;
 
+    private Button btn_retrofit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_main = findViewById(R.id.tv_scroll_main);
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        btn_retrofit = findViewById(R.id.btn_retrofit_main);
 
 
-        DataHolder holder = retrofit.create(DataHolder.class);
-
-        Call<List<Post>> call = holder.getPosts();
-
-        call.enqueue(new Callback<List<Post>>() {
-            @Override
-            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-
-                if (response.isSuccessful()) {
-
-                    List<Post> posts = response.body();
-
-                    for (Post post : posts) {
-
-                        String content = "";
-
-                        content += "ID : " + post.getId() + "\n";
-                        content += "User ID : " + post.getUserId() + "\n";
-                        content += "Title : " + post.getTitle() + "\n";
-                        content += "Content : " + post.getContents() + "\n";
-
-                        tv_main.append(content);
-
-                    }
-
-
-                }
-
-                //tv_main.setText(response.code());
-
-            }
-
-            @Override
-            public void onFailure(Call<List<Post>> call, Throwable t) {
-
-                tv_main.setText(t.getMessage());
-            }
-        });
 
 
     }
