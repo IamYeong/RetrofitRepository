@@ -2,8 +2,10 @@ package com.iamyeong.retrofitexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.FontRequest;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,8 +21,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tv_main;
-
     private Button btn_retrofit;
 
     @Override
@@ -30,7 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         btn_retrofit = findViewById(R.id.btn_retrofit_main);
 
-
+        btn_retrofit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RerofitActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

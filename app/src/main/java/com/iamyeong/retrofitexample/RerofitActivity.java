@@ -1,6 +1,8 @@
 package com.iamyeong.retrofitexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +20,11 @@ public class RerofitActivity extends AppCompatActivity {
     private Button btn_request;
     private TextView tv_retrofit;
     private RetrofitManager retrofitManager;
+    private List<Post> postList;
+    private RecyclerView recyclerView;
+    private PostAdapter adapter;
+    private LinearLayoutManager layoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +32,6 @@ public class RerofitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rerofit);
 
         btn_request = findViewById(R.id.btn_request);
-        tv_retrofit = findViewById(R.id.tv_retrofit);
 
         btn_request.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,9 +49,11 @@ public class RerofitActivity extends AppCompatActivity {
 
                         if (response.isSuccessful()) {
 
-                            List<Post> posts = response.body();
+                            postList = response.body();
 
-                            for (Post post : posts) {
+                            System.out.println("posts size is " + postList.size());
+
+                            for (Post post : postList) {
 
                                 String content = "";
 
@@ -79,4 +87,12 @@ public class RerofitActivity extends AppCompatActivity {
 
 
     }
+
+    private void setRecyclerView(List<Post> list) {
+
+
+
+
+    }
+
 }
